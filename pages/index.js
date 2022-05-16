@@ -2,28 +2,31 @@ import ShareLink from 'react-twitter-share-link'
 import Head from 'next/head'
 import Image from 'next/image'
 import logoQlo from '../assets/images/logo-qlo.png'
-
+ import gtag from '../lib/gtag'
 export default function Home({sites}) {
+	const handleClick = ()=>{
+	gtag.event({
+		action:'share_tweet',
+		category:'Challenge#1',
+		label:"Tweet"})
+}
 	return (
 		<div>
 			<Head>
-				//Primary Meta Tags
 				<title>QuiLivreOù? - L'annuaire des boutiques qui livrent aux Antilles-Guyane</title>
 				<meta name="title" content="QuiLivreOù? - L'annuaire des boutiques qui livrent aux Antilles-Guyane"/>
 				<meta name="description" content="Participe au développement du projet !
 				Trouve les sites qui livrent vers les Antilles-Guyane et partage tes sites marchands préférés."/>
 
-				//  Open Graph / Facebook
 					<meta property="og:type" content="website"/>
 				<meta property="og:url" content="https://quilivreou.fr/"/>
 				<meta property="og:title" content="QuiLivreOù? - L'annuaire des boutiques qui livrent aux Antilles-Guyane"/>
 				<meta property="og:description" content="Participe au développement du projet !
-				Trouve les sites qui livrent vers les Antilles-Guyane et partage tes sites marchands préférés."/>
-				<meta property="og:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"/>
+				Trouve les sites qui livrent vers les Antilles-Guyane et partage tes sites marchands préférés." />
+				<meta property="og:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png" />
 
-				//  Twitter
 				<meta property="twitter:card" content="summary_large_image"/>
-				<meta property="twitter:url" content="https://quilivreou.fr/">
+				<meta property="twitter:url" content="https://quilivreou.fr/"/>
 				<meta property="twitter:title" content="QuiLivreOù? - L'annuaire des boutiques qui livrent aux Antilles-Guyane"/>
 				<meta property="twitter:description" content="Participe au développement du projet !
 				Trouve les sites qui livrent vers les Antilles-Guyane et partage tes sites marchands préférés."/>
@@ -88,7 +91,7 @@ export default function Home({sites}) {
 					<div className="sticky bottom-0 inset-x-0">
 						<ShareLink
 							text="C&apos;est parti pour la refonte @quilivreou il nous faut 33 tweets pour atteindre la prochaine étape !"
-							link="https://quilivreou.fr" hashtags={['BidimBo']}>
+							link="https://quilivreou.fr" hashtags={['BidimBo']} onClick={handleClick}>
 							{link => <a
 								className="inline-block p-6 w-full h-full text-center text-2xl bg-black text-white"
 								href={link} target="_blank"  rel="noreferrer">Partage le projet</a>}
@@ -115,6 +118,5 @@ export default function Home({sites}) {
 export async function getStaticProps() {
 	const res = await fetch("http://quilivreou.fr/wp-json/wp/v2/posts?per_page=100")
 	const data = await res.json()
-	console.log(data)
 	return {props: {sites: data}}
 }
