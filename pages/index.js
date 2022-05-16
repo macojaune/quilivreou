@@ -40,8 +40,8 @@ export default function Home({sites}) {
 						thème wordpress gratuit avec un formulaire sur mesure et un fonctionnement
 						sommaire, simple. Efficace ? Pas trop.<br/>
 						Depuis rien n&apos;a bougé <i>(les priorités, tu connais)</i>. Pourtant, si tu
-						cherches <i>"qui livre en guadeloupe"</i>, le site est parmi les 1ers
-						résultats Google, <i className="font-semibold">"WouaaW"</i>.</p>
+						cherches <i>&quot;qui livre en guadeloupe&quot;</i>, le site est parmi les 1ers
+						résultats Google, <i className="font-semibold">&quot;WouaaW&quot;</i>.</p>
 				</section>
 				<section className="mt-5 px-4">
 					<h2 className="text-xl md:text-2xl font-semibold mb-3">Aujourd&apos;hui j&apos;ai eu
