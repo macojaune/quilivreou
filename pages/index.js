@@ -13,7 +13,7 @@ export default function Home({sites}) {
 	return (
 		<div>
 			<Head>
-				<title>QuiLivreOù? - L'annuaire des boutiques qui livrent aux Antilles-Guyane</title>
+				<title>QuiLivreOù? - L&apos;annuaire des boutiques qui livrent aux Antilles-Guyane</title>
 				<meta name="title" content="QuiLivreOù? - L'annuaire des boutiques qui livrent aux Antilles-Guyane"/>
 				<meta name="description" content="Participe au développement du projet !
 				Trouve les sites qui livrent vers les Antilles-Guyane et partage tes sites marchands préférés."/>
