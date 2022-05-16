@@ -116,7 +116,7 @@ export default function Home({sites}) {
 
 
 export async function getStaticProps() {
-	const res = await fetch("http://quilivreou.fr/wp-json/wp/v2/posts?per_page=100")
+	const res = await fetch("http://old.quilivreou.fr/wp-json/wp/v2/posts?per_page=100")
 	const data = await res.json()
 	return {props: {sites: data}}
 }
