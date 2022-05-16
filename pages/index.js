@@ -2,6 +2,7 @@ import ShareLink from 'react-twitter-share-link'
 import Head from 'next/head'
 import Image from 'next/image'
 import logoQlo from '../assets/images/logo-qlo.png'
+import tweetQlo from '../assets/images/tweet-qlo.png'
  import gtag from '../lib/gtag'
 export default function Home({sites}) {
 	const handleClick = ()=>{
@@ -86,7 +87,7 @@ export default function Home({sites}) {
 						<h2 className="text-xl md:text-3xl font-extrabold mb-3">
 							Objectif n°1 : Partager 33 tweets avec le hashtag #BidimBo
 						</h2>
-						<Image src={logoQlo} alt="Capture du premier tweet"/>
+						<Image src={tweetQlo} width={1640} height={742} alt="Capture du premier tweet"/>
 					</div>
 					<div className="sticky bottom-0 inset-x-0">
 						<ShareLink
