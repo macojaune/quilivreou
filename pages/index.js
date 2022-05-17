@@ -16,6 +16,8 @@ export default function Home({sites}) {
 		<div>
 			<Head>
 				<title>QuiLivreOù? - L&apos;annuaire des boutiques qui livrent aux Antilles-Guyane</title>
+				<meta charSet="utf-8" />
+	        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				<meta name="title" content="QuiLivreOù? - L'annuaire des boutiques qui livrent aux Antilles-Guyane"/>
 				<meta name="description" content="Participe au développement du projet !
 				Trouve les sites qui livrent vers les Antilles-Guyane et partage tes sites marchands préférés."/>
@@ -25,14 +27,15 @@ export default function Home({sites}) {
 				<meta property="og:title" content="QuiLivreOù? - L'annuaire des boutiques qui livrent aux Antilles-Guyane"/>
 				<meta property="og:description" content="Participe au développement du projet !
 				Trouve les sites qui livrent vers les Antilles-Guyane et partage tes sites marchands préférés." />
-				<meta property="og:image" content="/sceen.JPG" />
+				<meta property="og:image" content="https://quilivreou.fr/screen.JPG" />
 
 				<meta property="twitter:card" content="summary_large_image"/>
-				<meta property="twitter:url" content="https://quilivreou.fr/"/>
+				<meta property="twitter:url" content="https://www.quilivreou.fr/"/>
+				<meta property="twitter:site" content="@quilivreou"/>
 				<meta property="twitter:title" content="QuiLivreOù? - L'annuaire des boutiques qui livrent aux Antilles-Guyane"/>
 				<meta property="twitter:description" content="Participe au développement du projet !
 				Trouve les sites qui livrent vers les Antilles-Guyane et partage tes sites marchands préférés."/>
-				<meta property="twitter:image" content="/screen.JPG"/>
+				<meta property="twitter:image" content="https://www.quilivreou.fr/screen.JPG"/>
 				<link rel="icon" href="/favicon.bmp"/>
 			</Head>
 
