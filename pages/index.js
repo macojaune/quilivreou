@@ -96,7 +96,7 @@ export default function Home({sites}) {
 					<div className="sticky bottom-0 inset-x-0">
 						<ShareLink
 							text="C&apos;est parti pour la refonte @quilivreou il nous faut 33 tweets pour atteindre la prochaine étape !"
-							link="https://quilivreou.fr" hashtags={['BidimBo']} onClick={handleClick}>
+							link="https://www.quilivreou.fr" hashtags={['BidimBo']} onClick={handleClick}>
 							{link => <a
 								className="inline-block p-6 w-full h-full text-center text-2xl bg-black text-white"
 								href={link} target="_blank"  rel="noreferrer">Partage le projet</a>}
