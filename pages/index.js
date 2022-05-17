@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import logoQlo from '../assets/images/logo-qlo.png'
 import tweetQlo from '../assets/images/tweet-qlo.png'
+
  import gtag from '../lib/gtag'
 export default function Home({sites}) {
 	const handleClick = ()=>{
@@ -24,15 +25,15 @@ export default function Home({sites}) {
 				<meta property="og:title" content="QuiLivreOù? - L'annuaire des boutiques qui livrent aux Antilles-Guyane"/>
 				<meta property="og:description" content="Participe au développement du projet !
 				Trouve les sites qui livrent vers les Antilles-Guyane et partage tes sites marchands préférés." />
-				<meta property="og:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png" />
+				<meta property="og:image" content="/sceen.JPG" />
 
 				<meta property="twitter:card" content="summary_large_image"/>
 				<meta property="twitter:url" content="https://quilivreou.fr/"/>
 				<meta property="twitter:title" content="QuiLivreOù? - L'annuaire des boutiques qui livrent aux Antilles-Guyane"/>
 				<meta property="twitter:description" content="Participe au développement du projet !
 				Trouve les sites qui livrent vers les Antilles-Guyane et partage tes sites marchands préférés."/>
-				<meta property="twitter:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"/>
-				<link rel="icon" href="/favicon.ico"/>
+				<meta property="twitter:image" content="/screen.JPG"/>
+				<link rel="icon" href="/favicon.bmp"/>
 			</Head>
 
 			<main className="md:max-w-6xl mx-auto ">
