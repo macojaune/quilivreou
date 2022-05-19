@@ -9,8 +9,8 @@ export default function Home({sites}) {
 	const handleClick = ()=>{
 	gtag.event({
 		action:'share_tweet',
-		category:'Challenge#1',
-		label:"Tweet"})
+		category:'engagement',
+		label:"challenge1"})
 }
 	return (
 		<div>
