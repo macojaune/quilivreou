@@ -4,35 +4,46 @@ import Image from 'next/image'
 import logoQlo from '../assets/images/logo-qlo.png'
 import tweetQlo from '../assets/images/tweet-qlo.png'
 
- import gtag from '../lib/gtag'
+import gtag from '../lib/gtag'
+import useSWR from 'swr'
+
+const fetcher = (...args) => fetch(...args).then(res => res.json())
+
 export default function Home({sites}) {
-	const handleClick = ()=>{
-	gtag.event({
-		action:'share_tweet',
-		category:'engagement',
-		label:"challenge1"})
-}
+	const {data, error} = useSWR('/api/twitter', fetcher)
+
+	const handleClick = () => {
+		gtag.event({
+			action: 'share_tweet',
+			category: 'engagement',
+			label: "challenge1"
+		})
+	}
 	return (
 		<div>
 			<Head>
-				<title>QuiLivreOù? - L&apos;annuaire des boutiques qui livrent aux Antilles-Guyane</title>
-				<meta charSet="utf-8" />
-	        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-				<meta name="title" content="QuiLivreOù? - L'annuaire des boutiques qui livrent aux Antilles-Guyane"/>
+				<title>QuiLivreOù? - L&apos;annuaire des boutiques qui livrent aux
+					Antilles-Guyane</title>
+				<meta charSet="utf-8"/>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+				<meta name="title"
+				      content="QuiLivreOù? - L'annuaire des boutiques qui livrent aux Antilles-Guyane"/>
 				<meta name="description" content="Participe au développement du projet !
 				Trouve les sites qui livrent vers les Antilles-Guyane et partage tes sites marchands préférés."/>
 
-					<meta property="og:type" content="website"/>
+				<meta property="og:type" content="website"/>
 				<meta property="og:url" content="https://quilivreou.fr/"/>
-				<meta property="og:title" content="QuiLivreOù? - L'annuaire des boutiques qui livrent aux Antilles-Guyane"/>
+				<meta property="og:title"
+				      content="QuiLivreOù? - L'annuaire des boutiques qui livrent aux Antilles-Guyane"/>
 				<meta property="og:description" content="Participe au développement du projet !
-				Trouve les sites qui livrent vers les Antilles-Guyane et partage tes sites marchands préférés." />
-				<meta property="og:image" content="https://quilivreou.fr/screen.JPG" />
+				Trouve les sites qui livrent vers les Antilles-Guyane et partage tes sites marchands préférés."/>
+				<meta property="og:image" content="https://quilivreou.fr/screen.JPG"/>
 
 				<meta property="twitter:card" content="summary_large_image"/>
 				<meta property="twitter:url" content="https://www.quilivreou.fr/"/>
 				<meta property="twitter:site" content="@quilivreou"/>
-				<meta property="twitter:title" content="QuiLivreOù? - L'annuaire des boutiques qui livrent aux Antilles-Guyane"/>
+				<meta property="twitter:title"
+				      content="QuiLivreOù? - L'annuaire des boutiques qui livrent aux Antilles-Guyane"/>
 				<meta property="twitter:description" content="Participe au développement du projet !
 				Trouve les sites qui livrent vers les Antilles-Guyane et partage tes sites marchands préférés."/>
 				<meta property="twitter:image" content="https://www.quilivreou.fr/screen.JPG"/>
@@ -65,15 +76,18 @@ export default function Home({sites}) {
 						En 2015, sur un coup de tête comme celui-ci, je lance quilivreou.fr. Un
 						thème wordpress gratuit avec un formulaire sur mesure et un fonctionnement
 						sommaire, simple. Efficace ? Pas trop.<br/>
-						Depuis rien n&apos;a bougé <i>(les priorités, tu connais)</i>. Pourtant, si tu
-						cherches <i>&quot;qui livre en guadeloupe&quot;</i>, le site est parmi les 1ers
+						Depuis rien n&apos;a bougé <i>(les priorités, tu connais)</i>. Pourtant, si
+						tu
+						cherches <i>&quot;qui livre en guadeloupe&quot;</i>, le site est parmi les
+						1ers
 						résultats Google, <i className="font-semibold">&quot;WouaaW&quot;</i>.</p>
 				</section>
 				<section className="mt-5 px-4">
-					<h2 className="text-xl md:text-2xl font-semibold mb-3">Aujourd&apos;hui j&apos;ai eu
+					<h2 className="text-xl md:text-2xl font-semibold mb-3">Aujourd&apos;hui
+						j&apos;ai eu
 						l&apos;idée de le retaper d&apos;<a className="underline hover:decoration-4"
-						                          href="https://www.figma.com/file/QCZURRHmMDw27kxeLo0px1/QuiLivreO%C3%B9-Road-to-v2"
-						                          target="_blank" rel="noreferrer">une
+						                                    href="https://www.figma.com/file/QCZURRHmMDw27kxeLo0px1/QuiLivreO%C3%B9-Road-to-v2"
+						                                    target="_blank" rel="noreferrer">une
 							façon stimulante</a>.</h2>
 					<div className="flex justify-center">
 						<ol className="list-decimal text-lg">
@@ -89,17 +103,21 @@ export default function Home({sites}) {
 				<section className="mt-5">
 					<div className="px-4 mb-3  md:text-center">
 						<h2 className="text-xl md:text-3xl font-extrabold mb-3">
-							Objectif n°1 : Partager 33 tweets avec le hashtag #BidimBo
+							Objectif n°1 : Partager {" "}
+							{data && <span>{data}<small>/33</small></span> || 33} tweets avec le
+							hashtag #BidimBo
 						</h2>
-						<Image src={tweetQlo} width={1640} height={742} alt="Capture du premier tweet"/>
+						<Image src={tweetQlo} width={1640} height={742}
+						       alt="Capture du premier tweet"/>
 					</div>
 					<div className="sticky bottom-0 inset-x-0">
 						<ShareLink
 							text="C&apos;est parti pour la refonte @quilivreou il nous faut 33 tweets pour atteindre la prochaine étape !"
-							link="https://www.quilivreou.fr" hashtags={['BidimBo']} onClick={handleClick}>
+							link="https://www.quilivreou.fr" hashtags={['BidimBo']}
+							onClick={handleClick}>
 							{link => <a
 								className="inline-block p-6 w-full h-full text-center text-2xl bg-black text-white"
-								href={link} target="_blank"  rel="noreferrer">Partage le projet</a>}
+								href={link} target="_blank" rel="noreferrer">Partage le projet</a>}
 						</ShareLink>
 					</div>
 				</section>
@@ -108,12 +126,16 @@ export default function Home({sites}) {
 						<small className="font-normal italic text-sm md:text-base">ajoutés sur
 							l&apos;ancienne version</small></h2>
 					<div className="flex flex-row flex-wrap gap-2">
-						{sites && sites.map(s => <a className="underline hover:decoration-4 font-semibold" key={s?.id}>{s?.title?.rendered}</a>)}
+						{sites && sites.map(s => <a
+							className="underline hover:decoration-4 font-semibold"
+							key={s?.id}>{s?.title?.rendered}</a>)}
 					</div>
 				</section>
 			</main>
 			<footer className="px-6 my-12 text-center">
-				<p className="font-semibold text-blue-500">Pondu avec humour par <a className="underline hover:decoration-4" href="https://marvinl.com" target="_blank" rel="noreferrer">MarvinL.com</a></p>
+				<p className="font-semibold text-blue-500">Pondu avec humour par <a
+					className="underline hover:decoration-4" href="https://marvinl.com"
+					target="_blank" rel="noreferrer">MarvinL.com</a></p>
 			</footer>
 		</div>
 	)
