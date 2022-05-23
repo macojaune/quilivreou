@@ -10,7 +10,7 @@ import useSWR from 'swr'
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 export default function Home({sites}) {
-	const {data, error} = useSWR('/api/twitter', fetcher)
+	const {data} = useSWR('/api/twitter', fetcher)
 
 	const handleClick = () => {
 		gtag.event({
