@@ -38,7 +38,13 @@ const MyApp = ({Component, pageProps}) => {
             `,
 			}}
 		/>
-		<Component {...pageProps} /></>
+		<Component {...pageProps} />
+		<footer className="px-6 my-12 text-center">
+			<p className="font-semibold text-blue-500">Pondu avec humour par <a
+				className="underline hover:decoration-4" href="https://marvinl.com"
+				target="_blank" rel="noreferrer">MarvinL.com</a></p>
+		</footer>
+	</>
 }
 
 export default MyApp

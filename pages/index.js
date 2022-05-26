@@ -2,10 +2,10 @@ import ShareLink from 'react-twitter-share-link'
 import Head from 'next/head'
 import Image from 'next/image'
 import logoQlo from '../assets/images/logo-qlo.png'
-import tweetQlo from '../assets/images/tweet-qlo.png'
 
 import gtag from '../lib/gtag'
 import useSWR from 'swr'
+import Link from "next/link";
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
@@ -102,23 +102,25 @@ export default function Home({sites}) {
 				</section>
 				<section className="mt-5">
 					<div className="px-4 mb-3  md:text-center">
-						<h2 className="text-xl md:text-3xl font-extrabold mb-3">
+						<h2 className="text-xl md:text-3xl font-medium mb-3 line-through">
 							Objectif n°1 : Partager {" "}
 							{data && <span>{data}<small>/33</small></span> || 33} tweets avec le
 							hashtag #BidimBo
 						</h2>
-						<Image src={tweetQlo} width={1640} height={742}
-						       alt="Capture du premier tweet"/>
+						<h2 className="text-xl md:text-3xl font-extrabold mb-3">
+							Objectif n°2 : Partager {" "}
+							{data && <span>{data}<small>/33</small></span> || 33} tweets avec le
+							hashtag #BidimBo
+						</h2>
+
 					</div>
 					<div className="sticky bottom-0 inset-x-0">
-						<ShareLink
-							text="C&apos;est parti pour la refonte @quilivreou il nous faut 33 tweets pour atteindre la prochaine étape !"
-							link="https://www.quilivreou.fr" hashtags={['BidimBo']}
-							onClick={handleClick}>
-							{link => <a
-								className="inline-block p-6 w-full h-full text-center text-2xl bg-black text-white"
-								href={link} target="_blank" rel="noreferrer">Partage le projet</a>}
-						</ShareLink>
+						<Link href="/ajouter-un-site">
+							<a
+								className="inline-block p-6 w-full h-full text-center text-2xl bg-black text-white">
+								Ajoute ton site préféré
+							</a>
+						</Link>
 					</div>
 				</section>
 				<section className="mt-5 px-4">
@@ -132,11 +134,7 @@ export default function Home({sites}) {
 					</div>
 				</section>
 			</main>
-			<footer className="px-6 my-12 text-center">
-				<p className="font-semibold text-blue-500">Pondu avec humour par <a
-					className="underline hover:decoration-4" href="https://marvinl.com"
-					target="_blank" rel="noreferrer">MarvinL.com</a></p>
-			</footer>
+
 		</div>
 	)
 }
