@@ -112,7 +112,7 @@ export default function Home({sites}) {
 					</div>
 					<div className="sticky bottom-0 inset-x-0">
 						<ShareLink
-							text="C&apos;est parti pour la refonte @quilivreou il nous faut 33 tweets pour atteindre la prochaine étape !"
+							text={`C'est parti pour la refonte @quilivreou il nous faut ${data ? 'encore '+ (33-data) : '33'} tweets pour atteindre la prochaine étape !`}
 							link="https://www.quilivreou.fr" hashtags={['BidimBo']}
 							onClick={handleClick}>
 							{link => <a
