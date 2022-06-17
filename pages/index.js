@@ -102,17 +102,21 @@ export default function Home({sites}) {
 				</section>
 				<section className="mt-5">
 					<div className="px-4 mb-3  md:text-center">
-						<h2 className="text-xl md:text-3xl font-extrabold mb-3">
+						<h2 className="text-xl md:text-3xl font-extrabold mb-3 animate-pulse">
+							Objectif n°2 : Patience…
+						</h2>
+						<h2 className="text-xl md:text-3xl font-extrabold mb-3 line-through">
 							Objectif n°1 : Partager {" "}
 							{data && <span>{data}<small>/33</small></span> || 33} tweets avec le
 							hashtag #BidimBo
 						</h2>
+
 						<Image src={tweetQlo} width={1640} height={742}
 						       alt="Capture du premier tweet"/>
 					</div>
 					<div className="sticky bottom-0 inset-x-0">
 						<ShareLink
-							text={`C'est parti pour la refonte @quilivreou il nous faut ${data ? 'encore '+ (33-data) : '33'} tweets pour atteindre la prochaine étape !`}
+							text={`C'est parti pour la refonte @quilivreou on a atteint l'objectif, stressons @macojaune pour démarrer la prochaine étape !`}
 							link="https://www.quilivreou.fr" hashtags={['BidimBo']}
 							onClick={handleClick}>
 							{link => <a
